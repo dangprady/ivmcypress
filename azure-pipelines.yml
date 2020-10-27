@@ -1,0 +1,88 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+jobs:
+
+  # Example job that runs end-to-end tests using Cypress test runner
+  #   https://www.cypress.io/
+
+  # Job names can contain alphanumeric characters and '_', cannot start with a number
+  - job: Cypress_e2e_tests
+    pool:
+      vmImage: 'ubuntu-16.04'
+      #vmImage: 'windows-latest'
+  #  strategy:
+  #    parallel: 4
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+          displayName: 'Install Node.js'
+
+      # NPM modules and Cypress binary should be cached
+      # otherwise the install will be too slow
+      # https://docs.microsoft.com/en-us/azure/devops/pipelines/caching/?view=azure-devops
+      # since the username / user home directory are not available via system variables
+      # (there is even an open question about it)
+      # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops
+      # just use "/home/vsts" for now
+      - task: CacheBeta@1
+        inputs:
+          key: npm | $(Agent.OS) | package-lock.json
+          path: /home/vsts/.npm
+          restoreKeys: npm | $(Agent.OS) | package-lock.json
+        displayName: Cache NPM packages
+      - task: CacheBeta@1
+        inputs:
+          key: cypress | $(Agent.OS) | package-lock.json
+          path: /home/vsts/.cache/Cypress
+          restoreKeys: cypress | $(Agent.OS) | package-lock.json
+        displayName: Cache Cypress binary
+
+      # Install Node dependencies
+
+      - script: npm install
+        displayName: 'Install NPM dependencies'
+
+      - script: npx cypress verify
+        displayName: 'Cypress verify'
+
+      #- script: npm run cy:info
+      #  displayName: 'Cypress info'
+
+      # The next command starts the server and runs Cypress end-to-end tests against it.
+      # The test artifacts (video, screenshots, test output) will be uploaded to Cypress dashboard.
+      # To record on Cypress dashboard we need to set CYPRESS_RECORD_KEY environment variable.
+      # For setting ci-build-id, BUILD_BUILDNUMBER is a good candidate
+      - script: |
+          #npx print-env AGENT
+          #npx print-env BUILD
+          #npx print-env SYSTEM
+          npm run start:ci:windows &
+          npx cypress run --config video=false --spec 'cypress/integration/local.feature,cypress/integration/workitem.feature'
+          ls -ltr
+          ls -ltr cypress/results/
+        displayName: 'Run Cypress tests'
+        env:
+          # avoid warnings about terminal
+          TERM: xterm
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: 'cypress/results/execution_report-*.xml'
+          searchFolder: '$(System.DefaultWorkingDirectory)'
+          mergeTestResults: true
+      
+      - task: PublishCucumberReport@1
+        displayName: 'Publish Cucumber Report'
+        inputs:
+          jsonDir: cypress/cucumber-json
+          outputPath: cypress/results/cucumber
+          #metadata: |
+          #{
+          #  "ApplicationUrl": "$(App.Url)"
+          #}
+          name: 'Like4Like Tests'
+          title: Insyt

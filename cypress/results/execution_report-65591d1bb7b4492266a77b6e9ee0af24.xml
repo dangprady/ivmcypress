@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="11.07" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2020-10-27T07:15:42" tests="0" file="cypress/integration/local.feature" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Check product details page" timestamp="2020-10-27T07:15:42" tests="1" failures="0" time="11.07">
+    <testcase name="Check product details page WorkItem 33 Claimant enters invalid mobile number and checks for error message" time="11.07" classname="WorkItem 33 Claimant enters invalid mobile number and checks for error message">
+    </testcase>
+  </testsuite>
+</testsuites>

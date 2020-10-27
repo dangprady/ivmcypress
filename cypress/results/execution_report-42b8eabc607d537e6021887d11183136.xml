@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="30.388" tests="7" failures="1">
+  <testsuite name="Root Suite" timestamp="2020-10-27T07:16:17" tests="0" file="cypress/integration/workitem.feature" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Claimant can visit Start claim page and can enter his/her personal details" timestamp="2020-10-27T07:16:17" tests="7" failures="1" time="30.388">
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 30 Verify user cannot access start claim page if mandatory terms and conditions are not accepted." time="3.351" classname="WorkItem 30 Verify user cannot access start claim page if mandatory terms and conditions are not accepted.">
+    </testcase>
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 30 Verify user able to start claim after accepting terms and conditions" time="3.359" classname="WorkItem 30 Verify user able to start claim after accepting terms and conditions">
+    </testcase>
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 30 Verify The claimant is able to access and review the terms and conditions." time="0" classname="WorkItem 30 Verify The claimant is able to access and review the terms and conditions.">
+      <failure message="Timed out retrying: You attempted to make a chai-jQuery assertion on an object that is neither a DOM object or a jQuery object.
+
+The chai-jQuery assertion you used was:
+
+  &gt; text
+
+The invalid subject you asserted on was:
+
+  &gt; https://msa-gwr-poc-web-03.azurewebsites.net/en/terms
+
+To use chai-jQuery assertions your subject must be valid.
+
+This can sometimes happen if a previous assertion changed the subject." type="CypressError"><![CDATA[CypressError: Timed out retrying: You attempted to make a chai-jQuery assertion on an object that is neither a DOM object or a jQuery object.
+
+The chai-jQuery assertion you used was:
+
+  > text
+
+The invalid subject you asserted on was:
+
+  > https://msa-gwr-poc-web-03.azurewebsites.net/en/terms
+
+To use chai-jQuery assertions your subject must be valid.
+
+This can sometimes happen if a previous assertion changed the subject.
+    at Object.onInvalid (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:150886:17)
+    at assertDom (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:168031:26)
+    at Proxy.<anonymous> (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:168094:5)
+    at Proxy.methodWrapper (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:80820:25)
+    at applyChainer (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:154670:32)
+    at https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:154724:16
+    at arrayReduce (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:25417:21)
+    at Function.reduce (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:34441:14)
+    at applyChainers (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:154701:24)
+    at tryCatcher (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:10325:23)
+    at Function.Promise.attempt.Promise.try (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:7599:29)
+    at Context.shouldFn (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:154730:23)
+    at Context.should (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:154748:23)
+    at https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:150448:39
+    at assertions (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:150700:14)
+    at tryCatcher (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/runner/cypress_runner.js:10325:23)
+From Your Spec Code:
+    at promoHome.ourTermsLinkShouldBeWorking (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:544:16)
+    at Context.eval (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:776:13)
+    at Context.resolveAndRunStepDefinition (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:11396:9)
+    at Context.eval (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:10738:35)
+From Your Spec Code:
+    at promoHome.ourTermsLinkShouldBeWorking (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:544:16)
+    at Context.eval (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:776:13)
+    at Context.resolveAndRunStepDefinition (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:11396:9)
+    at Context.eval (https://msa-gwr-poc-web-03.azurewebsites.net/__cypress/tests?p=cypress/integration/workitem.feature:10738:35)]]></failure>
+    </testcase>
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 33 Claimant enters invalid mobile number and checks for error message" time="6.39" classname="WorkItem 33 Claimant enters invalid mobile number and checks for error message">
+    </testcase>
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 33  Claimant does not enters any field and checks for error message" time="4.119" classname="WorkItem 33  Claimant does not enters any field and checks for error message">
+    </testcase>
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 33  Claimant enters invalid email Id number and checks for error message" time="6.294" classname="WorkItem 33  Claimant enters invalid email Id number and checks for error message">
+    </testcase>
+    <testcase name="Claimant can visit Start claim page and can enter his/her personal details WorkItem 33  Claimant enters special characters and checks for error message" time="6.875" classname="WorkItem 33  Claimant enters special characters and checks for error message">
+    </testcase>
+  </testsuite>
+</testsuites>

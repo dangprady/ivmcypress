@@ -1,0 +1,18 @@
+version: '3'
+services:
+  cypress-bdd:
+    image: ddcypress
+    build: .
+    container_name: cypress
+    environment:
+      - CYPRESS_TARGET=https://msa-gwr-poc-web-03.azurewebsites.net
+    command:
+            - /bin/bash
+            - -c
+            - |
+                    npx cypress run --config video=false --spec 'cypress/integration/local.feature,cypress/integration/workitem.feature'
+                    ls -ltr
+                    node 'cypress/plugins/cr2.js'
+    volumes:
+      - ./cypress:/app/cypress
+      - ./cypress.json:/app/cypress.json

@@ -1,0 +1,20 @@
+{  
+  "baseUrl": "https://msa-gwr-poc-web-03.azurewebsites.net/en",
+  "fixturesFolder": "cypress/fixtures",
+  "integrationFolder": "cypress/integration",
+  "pluginsFile": "cypress/plugins/index.js",
+  "screenshotsFolder": "cypress/screenshots",
+  "videosFolder": "cypress/videos",
+  "supportFile": "cypress/support/index.js",
+  "env":{
+    "logdirpath": "Dummy pathD:\\my_work\\new_dcypress\\doc-cypress\\log"
+  },
+  "screenshotsFolder": "cypress/screenshots",
+    "ignoreTestFiles": "*.js",
+    "reporter": "junit",
+    "reporterOptions": {
+      "mochaFile": "cypress/results/execution_report-[hash].xml",
+      "toConsole": true
+    }
+
+}
