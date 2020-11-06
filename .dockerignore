@@ -1,0 +1,10 @@
+Dockerfile
+README.md
+azure-pipelines.yml
+docker-compose.yml
+jsconfig.json
+report.html
+screenshots
+cypress/integration/*
+logs
+log

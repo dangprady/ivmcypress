@@ -1,0 +1,6 @@
+cypress/screenshots/
+cypress/results/
+cypress/cucumber-json/
+cypress/report.html
+cypress/report.html.json
+cypress/logs/
